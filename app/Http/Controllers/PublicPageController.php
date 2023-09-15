@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 class PublicPageController extends Controller
 {
     public function index() {
-        return '<h1>Welcome</h1><a href="/about">Take Me to About</a>';
+        $name = "Driver";
+        $someList = ['item a', 2354, 'item b'];
+
+        return view('index', ['listOfStuff' => $someList,"name" => $name, "message" => "Is the Bestes of the guys!"]);
     } 
 
     public function about() {
