@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use app\Http\Controllers\PublicPageController;
+use App\Http\Controllers\PublicPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return ('<h1>Welcome</h1><a href="/about">Take Me to About</a>');
-});
+Route::get('/', [PublicPageController::class, "index"]);
 
-Route::get('/about', function () {
-    return ('<h1>About</h1><a href="/">Take Me Home</a>');
-});
+Route::get('/about', [PublicPageController::class, "about"]);

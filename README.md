@@ -3,6 +3,14 @@
 composer create-project laravel/laravel testapp
 php artisan serve
 
+to create a controller
+php artisan make:controller ExampleController
+
+to clear git 
+php artisan view:clear
+
+
+
 
 
 
