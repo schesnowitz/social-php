@@ -14,6 +14,6 @@ class PublicPageController extends Controller
     } 
 
     public function about() {
-        return '<h1>About</h1><a href="/">Take Me Home</a>';
+        return view('single-post');
     } 
 }

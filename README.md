@@ -9,6 +9,10 @@ php artisan make:controller ExampleController
 to clear git 
 php artisan view:clear
 
+import templates like base django
+<x-base>
+or @include('filename)
+
 
 
 
