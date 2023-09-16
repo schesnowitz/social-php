@@ -13,6 +13,14 @@ import templates like base django
 <x-base>
 or @include('filename)
 
+connect db in env 
+php artisan migrate
+drop DB and recreate
+php artisan migrate
+add a migration to add a column
+php artisan make:migration add_user_age
+
+
 
 
 
