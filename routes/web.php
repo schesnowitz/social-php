@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 // use app\Http\Controllers\PublicPageController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PublicPageController;
 
@@ -20,3 +21,6 @@ Route::get('/', [UserController::class, "showIndex"]);
 Route::post('/register', [UserController::class, "register"]); 
 Route::post('/login', [UserController::class, "login"]); 
 Route::post('/logout', [UserController::class, "logout"]);
+
+Route::get('/create-post', [PostController::class, "show_form_create_post"]);
+Route::post('/create-post', [PostController::class, "create_post"]);

@@ -22,6 +22,9 @@ php artisan make:migration add_user_age
 
 @csrf
 
+php artisan make:migration create_posts_table
+php artisan make:model Post
+
 
 
 
