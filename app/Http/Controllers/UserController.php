@@ -12,13 +12,14 @@ class UserController extends Controller
         auth()->logout();
         return redirect('/')->with('success_msg', 'You have logged out successfully.');;
     }
+
+
     public function showIndex() {
         if (auth()->check()) {
             return view('index-feed'); 
         } else {
             return view('index');
         }
-        
     }
 
 
@@ -47,7 +48,10 @@ class UserController extends Controller
         } else {
             return redirect('/')->with('error_msg', 'There is a problem with your password/email combination.');;
         }
-        
-
     }
+    public function profile(User $user) {
+        $user_posts = $user->posts()->latest()->get();
+        return view('profile-posts', ['user' => $user, 'posts' => $user_posts]);
+    }
+
 }
