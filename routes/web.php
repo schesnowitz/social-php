@@ -17,6 +17,6 @@ use App\Http\Controllers\PublicPageController;
 */
 
 Route::get('/', [UserController::class, "showIndex"]);
-Route::get('/about', [PublicPageController::class, "about"]);
 Route::post('/register', [UserController::class, "register"]); 
 Route::post('/login', [UserController::class, "login"]); 
+Route::post('/logout', [UserController::class, "logout"]);
