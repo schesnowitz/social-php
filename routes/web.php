@@ -26,6 +26,6 @@ Route::post('/logout', [UserController::class, "logout"])->middleware('only_logg
 Route::post('/create-post', [PostController::class, "create_post"])->middleware('only_logged_in');
 Route::get('/create-new-post', [PostController::class, "show_form_create_post"])->middleware('only_logged_in');
 Route::get('/post/{post_data}', [PostController::class, "show_post"]);
-
+Route::delete('/post/{post_data}', [PostController::class, "delete"]);
 // User profile routes 
 Route::get('/profile/{user:username}', [UserController::class, "profile"]);

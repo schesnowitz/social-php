@@ -25,7 +25,7 @@ php artisan make:migration add_user_age
 php artisan make:migration create_posts_table
 php artisan make:model Post
 php artisan make:middleware only_logged_in
-
+php artisan make:policy postPolicy --model=Post
 
 
 
