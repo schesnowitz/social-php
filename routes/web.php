@@ -17,11 +17,12 @@ use App\Http\Controllers\PublicPageController;
 |
 */
 
-Route::get('/', [UserController::class, "showIndex"]);
-Route::post('/register', [UserController::class, "register"]); 
-Route::post('/login', [UserController::class, "login"]); 
-Route::post('/logout', [UserController::class, "logout"]);
-Route::post('/create-post', [PostController::class, "create_post"]);
-Route::get('/create-new-post', [PostController::class, "show_form_create_post"]);
+Route::get('/', [UserController::class, "showIndex"])->name('login');
+Route::post('/register', [UserController::class, "register"])->middleware('guest'); 
+Route::post('/login', [UserController::class, "login"])->middleware('guest'); 
+Route::post('/logout', [UserController::class, "logout"])->middleware('only_logged_in');
+
+Route::post('/create-post', [PostController::class, "create_post"])->middleware('only_logged_in');
+Route::get('/create-new-post', [PostController::class, "show_form_create_post"])->middleware('only_logged_in');
 
 Route::get('/post/{post_data}', [PostController::class, "show_post"]);
