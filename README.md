@@ -20,6 +20,8 @@ php artisan migrate
 add a migration to add a column
 php artisan make:migration add_user_age
 
+@csrf
+
 
 
 

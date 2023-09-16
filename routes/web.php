@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 // use app\Http\Controllers\PublicPageController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PublicPageController;
 
 /*
@@ -18,3 +19,4 @@ use App\Http\Controllers\PublicPageController;
 Route::get('/', [PublicPageController::class, "index"]);
 
 Route::get('/about', [PublicPageController::class, "about"]);
+Route::post('/register', [UserController::class, "register"]); 
