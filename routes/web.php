@@ -21,6 +21,7 @@ Route::get('/', [UserController::class, "showIndex"]);
 Route::post('/register', [UserController::class, "register"]); 
 Route::post('/login', [UserController::class, "login"]); 
 Route::post('/logout', [UserController::class, "logout"]);
-
-Route::get('/create-post', [PostController::class, "show_form_create_post"]);
 Route::post('/create-post', [PostController::class, "create_post"]);
+Route::get('/create-new-post', [PostController::class, "show_form_create_post"]);
+
+Route::get('/post/{post_data}', [PostController::class, "show_post"]);

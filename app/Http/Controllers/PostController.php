@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+    public function show_form_create_post() {
+        return view('/create-new-post');
+    }
+
+
+    public function show_post(Post $post_data) { 
+        return view('single-post', ['post' => $post_data]);
+    }
+
+
     public function create_post(Request $request) {
         $post_form_data = $request->validate([
             'title' => 'required',
@@ -17,13 +28,11 @@ class PostController extends Controller
         $post_form_data['user_id'] = auth()->id();
         // $post_form_data['user_id'] = 1;
 
-        Post::create($post_form_data);
+        $created_post = Post::create($post_form_data);
         // error_log($post_form_data['user_id']);6
 
 
-        return('create-post');
+        return redirect("/post/{$created_post->id}")->with("success_msg", "Here is your new post!");
     }
-    public function show_form_create_post() {
-        return view('create-post');
-    }
+
 }
