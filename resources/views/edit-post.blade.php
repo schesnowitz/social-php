@@ -1,6 +1,7 @@
 <x-base>
   <div class="container py-md-5 container--narrow">
     <form action="/post/{{$post->id}}" method="POST">
+      <small><strong><a href="/post/{{$post->id}}">&laquo; Back to Post</a></strong></small>
       @method("PUT")
       @csrf
       <div class="form-group">
