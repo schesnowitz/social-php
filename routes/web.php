@@ -17,6 +17,25 @@ use App\Http\Controllers\PublicPageController;
 |
 */
 // User routes
+
+
+// Sample gate route
+
+// gate function example
+Route::get('admin', function() {
+  if (Gate::allows('view_admin_pages')) {
+    return "this is admin";
+  }
+  return "You can't see this";
+});
+
+// Gate middleware example
+Route::get('admin_middleware', function() {
+  return "this is admin";
+})->middleware('can:view_admin_pages'); 
+
+
+
 Route::get('/', [UserController::class, "showIndex"])->name('login');
 Route::post('/register', [UserController::class, "register"])->middleware('guest'); 
 Route::post('/login', [UserController::class, "login"])->middleware('guest'); 
