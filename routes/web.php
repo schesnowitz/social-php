@@ -50,3 +50,5 @@ Route::get('/post/{post}/edit', [PostController::class, "show_edit_form"])->midd
 Route::put('/post/{post}', [PostController::class, "save_edit_form"])->middleware('can:update,post');
 // User profile routes 
 Route::get('/profile/{user:username}', [UserController::class, "profile"]);
+Route::get('/manage-avatar', [UserController::class, "avatar_form"])->middleware('only_logged_in');
+Route::post('/manage-avatar', [UserController::class, "save_avatar_form"]);

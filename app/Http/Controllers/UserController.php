@@ -5,12 +5,35 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+
+    public function avatar_form() {
+        
+        return view('avatar-form');
+    }
+
+    public function save_avatar_form(Request $request) {
+        $request->validate([
+            'avatar' => 'required|image|max:8000' 
+        ]);
+        // $request->file('avatar')->store('public/avatars');
+
+        $user = auth()->user();
+        $image_filename = $user->id . "_" . uniqid() . '.jpg';
+        $image_data = Image::make($request->file('avatar'))->fit(200)->encode('jpg');
+                      
+        // Storage::put(a,b)
+        Storage::put('public/avatars/' . $image_filename, $image_data);
+    }
+
+
     public function logout() {
         auth()->logout();
-        return redirect('/')->with('success_msg', 'You have logged out successfully.');;
+        return redirect('/')->with('success_msg', 'You have logged out successfully.');
     }
 
 
