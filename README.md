@@ -27,6 +27,8 @@ php artisan make:model Post
 php artisan make:middleware only_logged_in
 php artisan make:policy postPolicy --model=Post
 
+php artisan make:migration add_isadmin_to_users --table=users
+
 
 
 

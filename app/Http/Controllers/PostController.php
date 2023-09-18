@@ -50,7 +50,8 @@ class PostController extends Controller
 
 
     public function show_post(Post $post_data) { 
-
+        // ddd($post_data->user);
+        // ddd($post_data);
         $post_data['body'] = Str::markdown($post_data->body);
         return view('single-post', ['post' => $post_data]);
     }
