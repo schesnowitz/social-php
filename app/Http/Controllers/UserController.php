@@ -28,6 +28,17 @@ class UserController extends Controller
                       
         // Storage::put(a,b)
         Storage::put('public/avatars/' . $image_filename, $image_data);
+
+
+        $old_avatar = $user->avatar;
+
+
+        $user->avatar = $image_filename;
+        $user->save();
+        if($old_avatar != "/default_profile.jpg") {
+            Storage::delete(str_replace("/storage/", "public/", $old_avatar));
+        }
+        return back()->with("success_msg", "Nice looking avatar!");
     }
 
 
