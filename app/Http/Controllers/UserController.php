@@ -12,10 +12,10 @@ class UserController extends Controller
 {
 
     public function avatar_form() {
-        
         return view('avatar-form');
     }
 
+    
     public function save_avatar_form(Request $request) {
         $request->validate([
             'avatar' => 'required|image|max:8000' 
